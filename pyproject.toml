@@ -1,0 +1,19 @@
+[project]
+name = "com-link-gen-10"
+version = "0.0.1"
+description = "calculate all composite link under 10 crossing."
+authors = [
+    {name = "GGN_2015",email = "premierbob@qq.com"}
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "prime-link-knot-10",
+    "group-diagram-combination",
+    "pd-code-components"
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
