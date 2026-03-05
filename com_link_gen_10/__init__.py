@@ -1,5 +1,6 @@
-from .main import com_link_gen
+from .main import com_link_gen, get_version
 
 __all__ = [
-    "com_link_gen"
+    "com_link_gen",
+    "get_version"
 ]
