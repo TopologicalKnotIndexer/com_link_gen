@@ -1,6 +1,6 @@
 [project]
 name = "com-link-gen-10"
-version = "0.2.0"
+version = "0.2.1"
 description = "calculate all composite link under 10 crossing."
 authors = [
     {name = "GGN_2015",email = "premierbob@qq.com"}
