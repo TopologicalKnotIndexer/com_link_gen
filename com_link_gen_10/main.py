@@ -5,7 +5,7 @@ import functools
 
 try:
     from .get_version import get_version
-except:
+except ImportError:
     from get_version import get_version
 
 # 给定链环名称计算链环 pd_code
@@ -67,10 +67,16 @@ def gen_all_solution(
 
 # 生成所有
 def com_link_gen(total_crs:int, max_component_cnt:int) -> list[str]:
+    if isinstance(total_crs, bool) or not isinstance(total_crs, int):
+        raise TypeError("total_crs must be an integer")
+    if isinstance(max_component_cnt, bool) or not isinstance(max_component_cnt, int):
+        raise TypeError("max_component_cnt must be an integer")
     if total_crs >= 11: # 目前尚不支持大于等于 11 crossing 的方案
-        raise ValueError()
+        raise ValueError("total_crs must be at most 10")
     if total_crs <= 1: # 我们默认链环最简形式有大于等于两个交叉点（不考虑多个圈）
-        raise ValueError()
+        raise ValueError("total_crs must be at least 2")
+    if max_component_cnt < 1:
+        raise ValueError("max_component_cnt must be positive")
     sol_list = prime_link_knot_10.get_all_combination(total_crs)
     sol_list = [
         sol

@@ -20,7 +20,9 @@ print(representations[0])
 
 ## Algorithm
 
-Prime names are sorted by crossing number, knot/link class, alternating class, table index, and mirror flag. A depth-first multiset enumeration permits repeated prime factors and keeps every non-empty solution whose crossing sum is within the bound. For each solution, component counts are loaded from its PD codes. The group-combination algorithm then enumerates connected edge sets with exactly `factor_count - 1` joins, producing one deterministic link-representation document per valid tree.
+Prime names are sorted by crossing number, knot/link class, alternating class, table index, and mirror flag. A depth-first multiset enumeration permits repeated prime factors and keeps every non-empty solution whose crossing sum is within the bound. Therefore one-factor prime documents are included alongside composite documents. For each solution, component counts are loaded from its PD codes. The group-combination algorithm then enumerates connected edge sets with exactly `factor_count - 1` joins, producing one deterministic link-representation document per valid tree.
+
+The historical parameter name `max_component_cnt` limits the number of **prime factors**, not the number of link components inside those factors. Both bounds must be positive integers, and the crossing bound is currently restricted to 2 through 10.
 
 ## Input conventions
 
@@ -32,12 +34,13 @@ No external software is required. This package is implemented entirely in Python
 
 ## Development
 
-Run examples and package checks before release. Python packages require Python 3.10 or newer. Build PyPI artifacts with:
+Python 3.10 or newer is required. Run tests with the declared catalogue, component, and combination dependencies available:
 
 ```bash
-poetry check
-poetry build
+python -m unittest discover -s tests -v
 ```
+
+No PyPI publication is performed as part of repository maintenance.
 
 ## License
 
