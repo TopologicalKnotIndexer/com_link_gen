@@ -1,30 +1,21 @@
-import functools
-import pip_pkg_info
+from functools import cache
+from importlib.metadata import PackageNotFoundError, version
+from pathlib import Path
+import tomllib
 
-@functools.cache
+
+@cache
 def get_version_in_toml() -> str:
-    import os
-    DIRNOW = os.path.dirname(os.path.abspath(__file__))
-    TOML_PATH = os.path.join(DIRNOW, "..", "pyproject.toml")
-
-    if not os.path.isfile(TOML_PATH):
+    path = Path(__file__).resolve().parent.parent / "pyproject.toml"
+    if not path.is_file():
         return "unknown"
+    with path.open("rb") as handle:
+        return str(tomllib.load(handle).get("project", {}).get("version", "unknown"))
 
-    for line in open(TOML_PATH):
-        line = line.strip()
-        if line.find("version") != -1: # 找到 version
-            if line[-1] == "\"":
-                return line[1:-1].split("\"")[-1]
-    
-    return "unknown"
 
-# 获得当前软件的版本
-@functools.cache
-def get_version(pkg_name_now:str) -> str:
-    dic = pip_pkg_info.pip_pkg_info()
-
-    if dic.get(pkg_name_now) is not None:
-        return dic[pkg_name_now]["version"]
-    
-    else:
+@cache
+def get_version(pkg_name_now: str = "com-link-gen-10") -> str:
+    try:
+        return version(pkg_name_now)
+    except PackageNotFoundError:
         return get_version_in_toml()

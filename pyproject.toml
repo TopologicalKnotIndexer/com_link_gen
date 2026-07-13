@@ -1,6 +1,6 @@
 [project]
 name = "com-link-gen-10"
-version = "0.1.0"
+version = "0.2.0"
 description = "calculate all composite link under 10 crossing."
 authors = [
     {name = "GGN_2015",email = "premierbob@qq.com"}
@@ -9,10 +9,9 @@ license = {text = "MIT"}
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    "prime-link-knot-10",
-    "group-diagram-combination",
-    "pd-code-components",
-    "pip-pkg-info"
+    "prime-link-knot-10>=0.1.0",
+    "group-diagram-combination>=0.1.0",
+    "pd-code-components>=0.1.0"
 ]
 
 [build-system]
