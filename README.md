@@ -52,7 +52,7 @@ If you use this repository in academic work, please cite it as:
 
 ```bibtex
 @software{topologicalknotindexer_com_link_gen,
-  author = {{TopologicalKnotIndexer contributors}},
+  author = {{GGN\_2015}},
   title = {{com\_link\_gen}},
   year = {2026},
   url = {https://github.com/TopologicalKnotIndexer/com_link_gen}
