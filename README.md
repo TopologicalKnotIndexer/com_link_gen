@@ -45,3 +45,16 @@ No PyPI publication is performed as part of repository maintenance.
 ## License
 
 MIT. See `LICENSE`.
+
+## Citation
+
+If you use this repository in academic work, please cite it as:
+
+```bibtex
+@software{topologicalknotindexer_com_link_gen,
+  author = {{TopologicalKnotIndexer contributors}},
+  title = {{com\_link\_gen}},
+  year = {2026},
+  url = {https://github.com/TopologicalKnotIndexer/com_link_gen}
+}
+```
